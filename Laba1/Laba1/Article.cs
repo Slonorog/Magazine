@@ -4,18 +4,18 @@ public class Article
 {
     public Person Author
     {
-        get { return Author; }
-        private set { Author = value; }
+        get;
+        private set;
     }
     public string Title
     {
-        get { return Title; }
-        private set { Title = value; }
+        get;
+        private set;
     }
     public double Rate
     {
-        get { return Rate; }
-        private set { Rate = value; }
+        get;
+        private set;
     }
     public Article(Person a, string t, double r)
     {
@@ -31,6 +31,6 @@ public class Article
     }
     public override string ToString()
     {
-        return Author.ToShortString() + Title + Rate.ToString();
+        return Author.ToShortString() +" "+ Title + Rate.ToString();
     }
 }

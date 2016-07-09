@@ -13,7 +13,7 @@ public class Magazine
     }
     public Magazine()
     {
-        Title += "None";
+        Title = "None";//
         periodicity = Frequency.Never;
         date = new DateTime(1917, 10, 25);
         circulation = -1;
@@ -53,45 +53,52 @@ public class Magazine
     }
     public override string ToString()
     {
-        return Title 
-            + periodicity.ToString() 
-            + date.ToString()
-            + circulation.ToString()
-            +list.ToString();// test
+        string output = Title
+          + ' ' + periodicity.ToString()
+          + ' ' + date.ToString()
+          + ' ' + circulation.ToString();
+        foreach(var a in list)
+        {
+            output += ' ' + a.ToString();
+        }
+        return output;
+         
     }
 
     public virtual string ToShortString()
     {
         return Title
-            + periodicity.ToString()
-            + date.ToString()
-            + circulation.ToString()
-            + ave_r.ToString();
+            + ' ' + periodicity.ToString()
+            +' '+ date.ToString()
+            + ' ' + circulation.ToString()
+            + ' ' + ave_r.ToString();
     }
     public string Title
     {
-        get { return Title; }
-        private set { Title = value; }
+        get;
+        private set;
     }
     public Frequency periodicity
     {
-        get { return periodicity; }
-        private set { periodicity = value; }
+        get;
+        private set;
     }
+    
     public DateTime date
     {
-        get { return date; }
-        private set { date = value; }
+        get;
+        private set;
     }
     public int circulation
     {
-        get { return circulation; }
-        private set { circulation = value; }
+    get;
+    private set;
     }
     public Article[] list
     {
-        get { return list; }
-        private set { list = value; }
+        get;
+        private set;
     }
+  
 
 }

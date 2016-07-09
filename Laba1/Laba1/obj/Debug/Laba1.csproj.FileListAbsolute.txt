@@ -7,3 +7,9 @@ c:\users\skifok\documents\visual studio 2015\Projects\Laba1\Laba1\obj\Debug\Laba
 C:\Users\SkifOK\Documents\Visual Studio 2015\Projects\Magazine\Laba1\Laba1\bin\Debug\Laba1.exe.config
 C:\Users\SkifOK\Documents\Visual Studio 2015\Projects\Magazine\Laba1\Laba1\obj\Debug\Laba1.exe
 C:\Users\SkifOK\Documents\Visual Studio 2015\Projects\Magazine\Laba1\Laba1\obj\Debug\Laba1.pdb
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\bin\Debug\Laba1.exe.config
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\obj\Debug\Laba1.exe
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\obj\Debug\Laba1.pdb
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\bin\Debug\Laba1.exe
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\bin\Debug\Laba1.pdb
+C:\Users\SkifOK\Documents\GitHub\Magazine\Laba1\Laba1\obj\Debug\Laba1.csprojResolveAssemblyReference.cache

@@ -6,18 +6,19 @@ public class Person
 {
     public string Fname
     {
-        get { return Fname; }
-        private set { Fname = value; }
+        get;
+        private set;
     }
     public string Sname
     {
-        get { return Sname; }
-        private set { Sname = value; }
+        get;
+        private set;
     }
     public DateTime Btime
     {
-        get { return Btime; }
-        private set { Btime = value; }
+        get;
+    
+        private set ;
     }
     public int year
     {
@@ -40,16 +41,16 @@ public class Person
     {
         Fname = "Illya";
         Sname = "Iorin";
-        Btime = new DateTime(21, 10, 1996);
+        Btime = new DateTime(1996,10,21);
     }
     public override string ToString()
     {
-        return Fname + Sname + Btime.ToString();
+        return Fname +' '+ Sname +' '+ Btime.ToString();
     }
 
     public virtual string ToShortString() // нету метода который надо переопределить
     {
-        return Fname + Sname;
+        return Fname +' '+ Sname;
     }
 
 }
