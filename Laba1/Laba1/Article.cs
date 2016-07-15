@@ -31,6 +31,9 @@ public class Article
     }
     public override string ToString()
     {
-        return Author.ToShortString() +" "+ Title + Rate.ToString();
+        return string.Format("Имя автора:{2} Название:{1} статьи рейтинг:{2}"
+           , Author.ToShortString()
+           , Title
+           , Rate.ToString());
     }
 }

@@ -53,13 +53,15 @@ public class Magazine
     }
     public override string ToString()
     {
-        string output = Title
-          + ' ' + periodicity.ToString()
-          + ' ' + date.ToString()
-          + ' ' + circulation.ToString();
-        foreach(var a in list)
+        string output = string.Format("Название Журнала: {0}/n Периодичность:{1} Дата выхода:{2} Тираж:{3}"
+            , Title
+            , periodicity.ToString()
+            , date.ToString()
+            , circulation.ToString()
+            );
+        foreach (var a in list)
         {
-            output += ' ' + a.ToString();
+            output += a.ToString()+'\n';
         }
         return output;
          
@@ -67,11 +69,12 @@ public class Magazine
 
     public virtual string ToShortString()
     {
-        return Title
-            + ' ' + periodicity.ToString()
-            +' '+ date.ToString()
-            + ' ' + circulation.ToString()
-            + ' ' + ave_r.ToString();
+        return string.Format("Название Журнала: {0} Периодичность:{1} Дата выхода:{2} Тираж:{3} Средний рейтинг статьи:{4}"
+            , Title
+            , periodicity.ToString()
+            , date.ToString()
+            , circulation.ToString()
+            , ave_r.ToString());
     }
     public string Title
     {
