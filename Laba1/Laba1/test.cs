@@ -13,6 +13,15 @@ public class Class
         }*/
         Magazine Test = new Magazine();
         Console.WriteLine(Test.ToString());
+        Console.WriteLine(Test[Frequency.Weekly]);
+        Console.WriteLine(Test[Frequency.Monthly]);
+        Console.WriteLine(Test[Frequency.Yearly]);
+        Console.WriteLine(Test[Frequency.Never]);
+        Test.AddArticles(
+             new Article()
+            ,new Article()
+            ,new Article());
+        Console.WriteLine(Test.ToString());
         Console.ReadKey();
     }
    

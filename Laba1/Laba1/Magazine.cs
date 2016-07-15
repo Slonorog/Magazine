@@ -44,7 +44,7 @@ public class Magazine
 
     public void AddArticles(params Article[] l)//Надо тестить и искать другое решение.
     {
-        Article[] temp = new Article[list.Length + l.Length];
+        Article[] temp = new Article[list.Length + l.Length-1];
         list.CopyTo(temp, 0);
 
         l.CopyTo(temp, 0);
@@ -53,7 +53,7 @@ public class Magazine
     }
     public override string ToString()
     {
-        string output = string.Format("Название Журнала: {0}/n Периодичность:{1} Дата выхода:{2} Тираж:{3}"
+        string output = string.Format("Название Журнала: {0}\nПериодичность:{1}\nДата выхода:{2} \nТираж:{3}\n"
             , Title
             , periodicity.ToString()
             , date.ToString()
