@@ -47,6 +47,16 @@ public class Person
     //{
     //return
     //}
+    public override bool Equals(object obj)
+    {
+        if (obj.GetType() == this.GetType())
+        {
+            Person buf = (Person)obj;
+            if (buf == this)
+                return true;
+        }
+        return false;
+    }
     public override int GetHashCode()
     {
         return (Fname.GetHashCode()+Sname.GetHashCode()+Btime.GetHashCode()).GetHashCode();

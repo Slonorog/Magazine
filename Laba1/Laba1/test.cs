@@ -2,7 +2,7 @@
 
 public class Class
 {
-    static void magaz()
+    static void magaz() //1-th laba
     {
         Magazine Test = new Magazine();
         Console.WriteLine(Test.ToString());
@@ -16,7 +16,7 @@ public class Class
             , new Article());
         Console.WriteLine(Test.ToString());
     }
-    static void art()
+    static void art() //сравнение массивов
     {
         Article[] Test1 = new Article[3000 * 1000];
         Article[,] Test2 = new Article[3000, 1000];
@@ -54,10 +54,17 @@ public class Class
         }
         Console.WriteLine("Веремя выполнения инициализации для  массива [3000][1000]: " + ((Environment.TickCount - time)).ToString());
     }
+    static void eq()// тест метода еквалс
+    {
+        Person k = new Person();
+        Person k1 = new Person();
+        Console.WriteLine(k.Equals(k1));
+    }
+
+
     static void Main(string[] args)
     {
-        Person a = new Person();
-        Console.WriteLine(a.GetHashCode());
+        eq();
         Console.ReadKey();
     }
    
