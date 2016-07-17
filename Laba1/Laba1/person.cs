@@ -43,6 +43,24 @@ public class Person
         Sname = "Iorin";
         Btime = new DateTime(1996,10,21);
     }
+    // public override bool Equals(object obj)
+    //{
+    //return
+    //}
+    public override int GetHashCode()
+    {
+        return (Fname.GetHashCode()+Sname.GetHashCode()+Btime.GetHashCode()).GetHashCode();
+    }
+    public static bool operator ==(Person p, Person p1)
+    {
+        return p.Fname == p1.Fname
+            && p.Fname == p1.Fname
+            && p.Btime == p1.Btime;
+    }
+    public static bool operator !=(Person p, Person p1)
+    {
+        return !(p.Fname == p1.Fname);
+    }
     public override string ToString()
     {
         return Fname +' '+ Sname +' '+ Btime.ToString();

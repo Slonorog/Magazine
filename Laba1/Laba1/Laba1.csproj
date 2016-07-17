@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Edition.cs" />
     <Compile Include="Frequency.cs" />
+    <Compile Include="IRateAndCopi.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="Person.cs" />
