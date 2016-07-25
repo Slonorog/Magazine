@@ -1,7 +1,13 @@
 ﻿using System;
 
-public class Article
+public class Article:  IRateAndCopi
 {
+     public object DeepCopy()// to do
+    {
+        return this;
+    }
+    public double Rating { get {return Rate; } } 
+
     public Person Author
     {
         get;

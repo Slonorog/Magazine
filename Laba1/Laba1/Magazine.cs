@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-public class Magazine
+public class Magazine : Edition, IRateAndCopi
 {
     public Magazine(string t, Frequency p, DateTime d, int c, Article[] l)
     {

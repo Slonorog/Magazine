@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    interface IRateAndCopi
+   public interface IRateAndCopi
     {
         double Rating { get; }
         object DeepCopy();
