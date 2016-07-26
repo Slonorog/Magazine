@@ -12,7 +12,7 @@ public class Person
     public string Sname
     {
         get;
-        private set;
+        set;
     }
     public DateTime Btime
     {
@@ -64,7 +64,7 @@ public class Person
     public static bool operator ==(Person p, Person p1)
     {
         return p.Fname == p1.Fname
-            && p.Fname == p1.Fname
+            && p.Sname == p1.Sname
             && p.Btime == p1.Btime;
     }
     public static bool operator !=(Person p, Person p1)
@@ -81,5 +81,6 @@ public class Person
         return Fname +' '+ Sname;
     }
 
+   
 }
 

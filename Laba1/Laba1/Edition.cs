@@ -8,7 +8,23 @@ public class Edition
     string Name;
     DateTime Release;
     int Count;
-   public Edition(string name, DateTime release, int count)
+     public string pName
+    {
+        get { return Name; }
+        private set { Name = value; }
+    }
+    public DateTime pRelease
+    {
+        get { return Release; }
+        private set { Release = value; }
+    }
+    public int pCount
+    {
+        get {return Count; }
+        set { Count = value; }
+    }
+
+    public Edition(string name, DateTime release, int count)
     {
         Name = name;
         Release = release;
@@ -49,7 +65,7 @@ public class Edition
     }
     public override string ToString()
     {
-        return String.Format("Название:{0} Дата выхода: {1} Тираж: {2}"
+        return string.Format("Название:{0} Дата выхода: {1} Тираж: {2}"
             , Name
             , Release
             , Count);

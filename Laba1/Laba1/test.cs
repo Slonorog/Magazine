@@ -1,8 +1,9 @@
 ﻿using System;
+using System.Collections;
 
-public class Class
+public class Test
 {
-    static void magaz() //1-th laba
+    static void magaz1() //1-th laba
     {
         Magazine Test = new Magazine();
         Console.WriteLine(Test.ToString());
@@ -60,11 +61,65 @@ public class Class
         Person k1 = new Person();
         Console.WriteLine(k.Equals(k1));
     }
+    static void dc()
+    {
+        Magazine m = new Magazine();
+        Console.WriteLine(m.DeepCopy());
+        IRateAndCopi m1 = new Magazine();
+        Console.WriteLine(m1.DeepCopy());
+    }
+    static void index()
+    {
+        Magazine a = new Magazine();
+       bool k= a[Frequency.Monthly];
+        Console.WriteLine(k);
+        k = a[Frequency.Never];
+        Console.WriteLine(k);
+    }
 
+    static void arrlist1()
+    {
+        ArrayList a1 = new ArrayList();
+        a1.Add(1);
+        a1.Add(2);
+        foreach (var item in a1)
+        {
+            Console.WriteLine(item);
+        }
+        ArrayList a2 = (ArrayList)a1.Clone();
+        foreach (var item in a2)
+        {
+            Console.WriteLine(item);
+        }
+        a2[0] = 100;
+        foreach (var item in a1)
+        {
+            Console.WriteLine(item);
+        }
+    }
+    static void arrlist2() 
+    {
+        ArrayList a1 = new ArrayList();
+        a1.Add(new Person());
+        foreach (var item in a1)
+        {
+            Console.WriteLine(item);
+        }
+        ArrayList a2 = (ArrayList)a1.Clone();
+        foreach (var item in a2)
+        {
+            Console.WriteLine(item);
+        }
+        ((Person)a2[0]).Sname = "123";
+        foreach (var item in a1)
+        {
+            Console.WriteLine(item);
+        }
+    }
 
     static void Main(string[] args)
     {
-        eq();
+        arrlist2();
         Console.ReadKey();
     }
    

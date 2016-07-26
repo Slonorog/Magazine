@@ -1,27 +1,38 @@
 ﻿using System;
 
 public class Article:  IRateAndCopi
-{
-     public object DeepCopy()// to do
-    {
-        return this;
-    }
-    public double Rating { get {return Rate; } } 
 
-    public Person Author
+{
+    Person Author;
+    public Person pAuthor
     {
-        get;
-        private set;
+        get { return Author; }
+        private set { Author = value; }
     }
-    public string Title
+    string Title;
+    public string pTitle
     {
-        get;
-        private set;
+        get { return Title; }
+        private set { Title = value; }
     }
-    public double Rate
+    double Rate;
+    public double pRate
     {
-        get;
-        private set;
+        get { return Rate; }
+        private set { Rate = value; }
+    }
+    public object DeepCopy()// to do
+    {
+        return new Article(this);
+    }
+    public double Rating { get {return Rate; } }
+
+    
+    public Article( Article _copy)
+    {
+        Author = new Person( _copy.Author);
+        Title = _copy.Title;
+        Rate = _copy.Rate;
     }
     public Article(Person a, string t, double r)
     {

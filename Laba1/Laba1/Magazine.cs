@@ -1,36 +1,52 @@
 ﻿using System;
-
+using System.Collections;
 
 public class Magazine : Edition, IRateAndCopi
 {
-    public Magazine(string t, Frequency p, DateTime d, int c, Article[] l)
+    public override object DeepCopy()
     {
-        Title = t;
-        periodicity = p;
-        date = d;
-        circulation = c;
-        list = l;
+        Console.WriteLine("DeepCopy override");
+        return new Magazine(this);
     }
-    public Magazine()
+    object IRateAndCopi.DeepCopy()
     {
-        Title = "None";//
-        periodicity = Frequency.Never;
-        date = new DateTime(1917, 10, 25);
-        circulation = -1;
-        list = new Article[1];
-        list[0] = new Article();
+        Console.WriteLine("DeepCopy interface");
+        return new Magazine(this);
     }
-
+    public Magazine(string t, Frequency p, DateTime d, int c, 
+        Article[] _articleArray, 
+        Person[] _personArray)
+        : base(t, d, c)
+    {
+        Periodicity = p;
+        ArticleList = new ArrayList();
+        foreach (var item in _articleArray)
+            ArticleList.Add( new Article(item));
+        AuthorList = new ArrayList();
+        foreach (var item in _personArray)
+            AuthorList.Add(new Person(item));
+    }
+    public Magazine() : base()
+    {
+        Periodicity = Frequency.Never;
+        ArticleList = new ArrayList();
+        AuthorList = new ArrayList();
+    }
+    public Magazine(Magazine _m) : base(_m.pName, _m.pRelease, _m.pCount)
+    {
+        pPeriodicity = _m.pPeriodicity;
+        _m.ArticleList.Clone();
+    }
     public double ave_r
     {
         get
         {
             double ave = 0;
-            foreach (Article l in list)
+            foreach (Article l in ArticleList)
             {
-                ave += l.Rate;
+                ave += l.pRate;
             }
-            return ave / list.Length;
+            return ave / ArticleList.Count;
         }
     }
 
@@ -38,70 +54,83 @@ public class Magazine : Edition, IRateAndCopi
     {
         get
         {
-            return f == periodicity ? true : false;
+            return f == Periodicity ? true : false;
         }
     }
+    public void AddArticles(params Article[] l)
 
-    public void AddArticles(params Article[] l)//Надо тестить и искать другое решение.
     {
-        Article[] temp = new Article[list.Length + l.Length-1];
-        list.CopyTo(temp, 0);
+        foreach (var item in l)
+        {
+            ArticleList.Add(item);
+        }
 
-        l.CopyTo(temp, 0);
-        list = temp;
-
-    }
+  }
     public override string ToString()
     {
         string output = string.Format("Название Журнала: {0}\nПериодичность:{1}\nДата выхода:{2} \nТираж:{3}\n"
-            , Title
-            , periodicity.ToString()
-            , date.ToString()
-            , circulation.ToString()
+            , pName
+            , Periodicity
+            , pRelease
+            , pCount
             );
-        foreach (var a in list)
+        foreach (var a in AuthorList)
         {
-            output += a.ToString()+'\n';
+            output += a.ToString() + '\n';
+        }
+        foreach (var a in ArticleList)
+        {
+            output += a.ToString() + '\n';
         }
         return output;
-         
+
     }
 
     public virtual string ToShortString()
     {
         return string.Format("Название Журнала: {0} Периодичность:{1} Дата выхода:{2} Тираж:{3} Средний рейтинг статьи:{4}"
-            , Title
-            , periodicity.ToString()
-            , date.ToString()
-            , circulation.ToString()
-            , ave_r.ToString());
+            , pName
+            , Periodicity
+            , pRelease
+            , pCount
+            , ave_r);
     }
-    public string Title
-    {
-        get;
-        private set;
-    }
-    public Frequency periodicity
-    {
-        get;
-        private set;
-    }
+
     
-    public DateTime date
+    private Frequency Periodicity;
+
+    public Frequency pPeriodicity
     {
-        get;
-        private set;
+        get { return Periodicity; }
+        private set { Periodicity = value; }
     }
-    public int circulation
+    private ArrayList AuthorList;
+    public ArrayList pAuthorList
     {
-    get;
-    private set;
+        get
+        {
+            return AuthorList;
+        }
+        private set
+        {
+            AuthorList = value;
+        }
     }
-    public Article[] list
+    private ArrayList ArticleList;
+    public ArrayList pArticleList
     {
-        get;
-        private set;
+        get { return ArticleList; }
+        private set { ArticleList = value; }
     }
-  
+
+
+
+    public double Rating
+    {
+        get
+        {
+            return ave_r;
+        }
+    }
 
 }
